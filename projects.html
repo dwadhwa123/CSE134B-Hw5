@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en"> 
+  <head>
+    <title>Dhruv Wadhwa's Portfolio</title> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Dhruv">
+    <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/form_style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <noscript>
+    <style>
+        .theme_button {
+            display: none;
+        }
+    </style>
+</noscript>
+  </head>
+
+
+<body>
+  <header>
+    <canvas id="myCanvas" width="500" height="34"></canvas>
+  
+    <noscript>
+      <h1> Dhruv Wadhwa's Portfolio </h1>
+    </noscript>
+  
+    <script>
+      var canvas = document.getElementById('myCanvas');
+      var ctx = canvas.getContext('2d');
+    
+      ctx.font = '25px Arial';
+      ctx.fillStyle = 'green';
+    
+      var text = "Dhruv Wadhwa's Portfolio";
+      ctx.fillText(text, 20, 30);
+    </script>
+     
+    <div class="link-section">
+        <nav>
+          <ul class="navigation_links">
+              <li><a href="index.html" target="_top">Home</a></li>
+              <li><a href="about.html" target="_top">About</a></li>
+              <li><a href="skills.html" target="_top">Skills</a></li>
+              <li><a href="projects.html" target="_top">Projects</a></li>
+              <li><a href="faq.html" target="_top">FAQ</a></li>
+          </ul>
+      </nav>
+    </div>
+  
+
+    <button class="theme_button">Switch to Dark Mode</button>
+  
+    </header>
+
+  <main>
+    <section id="projects">
+        <h2>My Projects And Experiences</h2>
+        <dl>
+          <dt>Business Game with <cite><a href="https://www.ceregem.net/blog" target="_blank" title="Ceregem Technologies Website">Ceregem Technologies</a></cite></dt>
+            <dd><strong>Summary:</strong> I worked with two professors to create a real time game using <span class="programming-skill">JavaFX</span> for the UI components that allows players to make business decisions such as cost choices and advertising and gives out profits, sales using a formula.
+              I managed my source control with Git. For example, I use: 
+              <kbd><code>git status</code></kbd> to check the status of my repository.
+              <kbd><code>git commit -m "Your commit message"</code></kbd> to commit changes to the repository.
+              In order to quickly update the results based on the decisions made by the players, I stored the decisions in <dfn><span class="programming-skill">MongoDB</span></dfn>, which is a database that can store data in a document oriented format and used listeners to see when they were changed. 
+              Using these listners, I could instantaneously update the UI. The reason I used MongoDB is because the information sent between users is fixed into a few decisions so there was no need to overcomplicate it by doing a client-server application.
+              </dd>
+
+          <br>
+  
+          <dt>Pantry Pal</dt>
+            <dd><strong>Summary:</strong> I worked with a group of 6 people to create a recipe generating and storing application. We used the <span class="programming-skill">Whisper API</span> to take in speech input of ingredients, then using those ingredients
+              generating a recipe with a <span class="programming-skill">Chatgpt API</span>. Along with the recipe, we used the <span class="programming-skill">Dalle API</span> to generate images. Same as the game I created, we also used JavaFX for the UI. Finally, we also used a MongoDB server in order to save information from accounts so that you can log into an account from any device. 
+              Working on this project helped improve my communication and teamwork as it forced me to compromise and make decisions that everyone could get behind.
+           </dd>
+
+           <br>
+          
+          <dt>TFIDF Vectorizer to predict MBTI type</dt>
+            <dd><strong>Summary:</strong> I created a <span class="programming-skill">TDIDF Vectorizer</span> with the purpose of taking in strings 
+              representing the post history of the user and using that to predict the <abbr title="Myers Brigss Type Indicator">MBTI</abbr> of that user. I used supervised learning to train the model as the code shows below. 
+            
+              <pre>
+                tfidf_vectorizer = TfidfVectorizer(stop_words='english', max_features=5000)
+    
+                # Fit and transform the training data, and transform the test data
+                X_train_tfidf = tfidf_vectorizer.fit_transform(X_train)
+                X_test_tfidf = tfidf_vectorizer.transform(X_test)
+                log_reg = LogisticRegression(max_iter=1000)
+    
+                # Train the model
+                log_reg.fit(X_train_tfidf, y_train)
+              </pre>
+            </dd>
+
+
+          <dt>Creating a custom NFA </dt>
+          <dd><strong>Summary:</strong> I created a <abbr title="NonDeterminisitc Finite Automatic"><span class="programming-skill">NFA</span></abbr> which took in an input of a string and returned the string + 'ab' if of even length or the string minus its last character if of odd length.
+            I really struggled with this project because it was very open ended in terms of the coding aspect and I wans't sure how I wanted to approach it. I thought about making classes/objects to represent the different states but ultimately decided on using boolean values.
+            Even though it wasn't the most difficult project, it really helped refine my process in terms of how to approach a new problem that I haven't faced before. 
+          </dd>
+          <br>
+          <div class="video_styler">
+            <video controls>
+              <source src="media/CSE105Project.mp4" type="video/mp4" preload="none">
+              Video not supported.
+            </video>
+          </div>
+          
+
+        </dl>
+
+      </section>
+  </main>
+
+  <footer>
+    <h2>Contact Me</h2>
+    <form class="info_form" action="https://httpbin.org/post" method="post">
+      <fieldset>
+        <legend>Personal Information</legend>
+          <input type="hidden" name="possible_bot" value="true">
+          
+          <input type="hidden" class="form-errors" name="form-errors" value="">
+  
+          <label for="name4">Name: <span class="required_indicator">*</span></label>
+          <input type="text" class="name" name="name" id="name4" required>
+          
+          <label for="email4">Email: <span class="required_indicator">*</span></label>
+          <input type="email" class="email" name="email" id="email4" required>
+  
+          <label for="phone4">Phone Number:</label>
+          <input type="tel" class="number" name="number" id="phone4" placeholder="555-555-5555" pattern="^\d{3}-\d{3}-\d{4}$">
+        
+          <label for="comments4">Comments: <span class="required_indicator">*</span></label>
+          <textarea class="comments" name="comments" id="comments4" required minlength="10" maxlength="500"></textarea>
+  
+  
+          <output class="error-message">There was an error with your form submission.</output> 
+          <output class="info-message">500 characters remaining</output>
+          <button type="submit" class="submit_button">Send Message</button>
+  
+      </fieldset>
+    </form>
+  <address>
+    <ol>
+      <li>Email: dhruvwa16@gmail.com or dwadhwa@ucsd.edu</li>
+      <li>Phone Number: (858)-265-9236</li>
+    </ol>
+  </address>
+  
+  <aside>
+    <a href="https://drive.google.com/file/d/1vr-jM7xTatfuOcuuxWPdtwKh1MlZ9JEH/view?usp=sharing" target="_blank" title="Resume">Resume</a>
+    <br>
+    <a href="https://www.linkedin.com/in/dhruv-wadhwa-8180261b3/" target="_blank" title="Linkedin">Linkedin</a>
+    <br>
+    <a href="https://github.com/dwadhwa123" target="_blank"></a>
+    <!-- Used chatgpt to generate this code -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+      <path fill="#181717" d="M12 0c-6.627 0-12 5.373-12 12 0 5.303 3.438 9.801 8.207 11.387.6.111.82-.258.82-.575v-2.1c-3.338.727-4.04-1.583-4.04-1.583-.546-1.388-1.333-1.757-1.333-1.757-1.088-.74.082-.726.082-.726 1.2.084 1.833 1.233 1.833 1.233 1.063 1.827 2.791 1.298 3.473.994.106-.771.416-1.297.758-1.596-2.665-.301-5.466-1.333-5.466-5.922 0-1.306.465-2.378 1.234-3.217-.123-.303-.534-1.528.117-3.174 0 0 1.009-.322 3.303 1.232.958-.266 1.984-.399 3.003-.404 1.018.005 2.046.138 3.003.404 2.292-1.554 3.303-1.232 3.303-1.232.653 1.646.24 2.871.117 3.174.769.839 1.234 1.911 1.234 3.217 0 4.595-2.806 5.62-5.478 5.917.428.385.809 1.144.809 2.297v3.401c0 .318.219.689.828.573 4.767-1.586 8.206-6.085 8.206-11.387 0-6.627-5.373-12-12-12z"/>
+    </svg>  
+  </aside>
+
+  
+    </footer>
+  <script src="script.js"></script>
+</body>
+</html>

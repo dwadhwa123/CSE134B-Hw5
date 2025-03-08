@@ -1,0 +1,806 @@
+/* Styling for the header */
+header {
+  height: 250px;
+  padding: 0px 0px;
+  width: 100vw;
+  background-color: lightgray; /*light mode */
+  color: yellow;
+}
+
+canvas{
+  display: block;
+  width: 500px;
+  height: 34px;
+}
+
+
+.link-section {
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+/* Style for the navigation links nested */
+.navigation_links {
+
+
+  list-style-type: none;
+  padding: 0;
+  margin-left: calc(100vw - 380px);
+  display: flex;
+  justify-content: flex-start;
+
+  li {
+    @media (max-width: 380px) {
+      margin-left: 17px;
+    }
+
+    @media (min-width: 380px) {
+      margin-left: 20px;
+    }
+
+  }
+
+  li a {
+    text-decoration: none;
+    color: red; 
+    font-size: 18px;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+
+  li a:hover {
+    color: #ff6347;
+    transform: scale(1.2);
+  }
+
+  li a:active {
+    color: blue;
+    transform: scale(1.2);
+  }
+}
+
+
+@media (max-width: 380px) {
+
+  .navigation_links {
+    margin-left: 0px;
+  }
+
+}
+
+
+@media (max-width: 500px) {
+
+  fieldset{
+    width: 70%;
+  }
+  
+}
+
+
+/*Used for both footer and header forms*/
+  
+  button {
+    padding: 8px 15px;
+    font-size: 16px;
+    background-color: #007BFF;
+    color: white;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+footer form {
+    display: flex;
+    flex-direction: column;             
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+}
+
+  fieldset {     
+    padding: 10px;     
+    margin: 0;         
+    box-sizing: border-box; 
+  }
+
+  fieldset {
+    border: 2px solid #4CAF50;
+    background-color: #f9f9f9; 
+  } 
+
+  form:has(textarea:focus) button {
+    border-color: red;
+  }
+
+
+
+  
+/* Styling for the footer */
+
+footer {
+  width: 100%;
+  background-color: lightgrey;
+
+  legend{
+    color: red
+  }
+
+  form {
+    margin: 5px 20px;
+    padding: 20px;
+    background-color: lightcyan;
+    border: 1px solid yellow;
+    border-radius: 8px;
+    text-align: left;
+    width: 100%;          
+    box-sizing: border-box; 
+  }
+
+  h2 {
+    text-align: left;
+    color: green;
+    margin-bottom: 20px;
+    margin-left: 20px;
+  }
+
+  aside{
+    margin: 5px 20px;
+  }
+
+  .comments{
+    width: 100%;
+    max-width: 500px;
+    min-width: 200px;
+    max-height: 200px;
+    height: 80px;
+  }
+
+}
+
+
+@media (min-width: 1150px) {
+
+  body {
+    display: flex;
+    flex-direction: row; 
+    min-height: 100vh;
+    flex-wrap: wrap;
+  }
+  
+  main {
+    flex: 1; 
+    padding: 20px;
+    display: flex;
+    width: 100%
+  }
+  
+}
+
+@media (max-width: 1149px) {
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+  }
+
+  body {
+    flex-direction: column;
+    display: flex;
+  }
+
+  main {
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box; 
+  }
+}
+
+
+aside a {
+  color: purple;
+  text-decoration: none;
+}
+
+aside a:hover {
+  text-decoration: underline; 
+}
+
+/* For the index.html class */
+
+.headshot_image{
+  width: 500px;
+  height: auto; 
+  object-fit: cover;
+  opacity: 0;  
+  transform: scale(0.5); 
+  animation: fadeInScale 2s ease-out forwards;
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1; 
+    transform: scale(1); 
+  }
+}
+
+:root {
+  --primary-color: green;
+  --font-size: 15px;
+  --font-family: 'monospace', 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+main{
+  font-family: var(--font-family);
+}
+
+
+
+/* Styling for the FAQ section */
+#faq {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: color(display-p3 0.8 0.8 0.8);;
+  border-radius: 8px; 
+
+  h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+
+  details {
+    margin-bottom: 15px;
+    background-color: color(display-p3 0.95 0.95 0.95);
+    border-radius: 5px;
+    padding: 10px;
+
+    p {
+      color: black;
+      font-size: 1em;
+      margin-top: 0;
+      padding-left: 10px;
+    }
+  }
+  summary {
+    font-weight: bold;
+    font-size: 1.1em;
+    cursor: pointer;
+    color: purple;
+    margin-bottom: 10px;
+    padding: 5px;
+    transition: color 0.3s;
+  }
+  summary:hover {
+    color: green; 
+  }
+}
+
+
+:root {
+  --primary-color: green;
+  --font-size: 15px;
+}
+
+h2{
+  color: var(--primary-color, blue);
+}
+
+
+
+
+
+/* Skills Section*/
+#skills {
+  margin: 20px;
+  padding: 20px;
+  background-color: lightyellow;
+  border-radius: 8px;
+
+  hgroup {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-size: 2em;
+    color: green;
+  }
+
+  h3 {
+    font-size: 1.5em;
+    color: #007BFF;
+    font-weight: normal;
+  }
+
+  h3{
+    text-align: center;
+  }
+}
+
+/* Styling for the table */
+#skills-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+
+  caption {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: brown;
+  }
+
+  th {
+    padding: 12px;
+    text-align: left;
+    background-color: color-mix(in display-p3, blue 40%, white 60%);
+    color: white; 
+    font-weight: bold;
+  }
+
+  td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+  tr:hover {
+    background-color: white; 
+  }
+}
+
+/*Extra style choices*/
+cite {
+  color: #007BFF;
+}
+
+cite a {
+  text-decoration: none;
+}
+
+cite a:hover {
+  text-decoration: underline; 
+}
+
+del {
+  color: #f44336; 
+}
+
+ins {
+  color: #4CAF50;
+}
+
+abbr{
+  font-style: italic;
+  text-decoration: none;
+}
+
+pre {
+  width: 100%;       
+  overflow-x: hidden; 
+  white-space: pre-wrap; 
+  padding: 10px;   
+  box-sizing: border-box;
+}
+
+video {
+  width: 50%;            
+  height: auto;           
+  max-width: 100%;         
+  box-sizing: border-box;  
+}
+
+
+@media (max-width: 1150px) {
+  #certificate_fig {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  video{
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 500px) {
+  .headshot_image{
+    width: 100%;
+  }
+  .skill_image{
+    width: 85dvw;
+    height: auto; 
+    object-fit: cover;
+  }
+
+}
+
+@media (min-width: 501px) and (max-width: 800px) {
+  .headshot_image{
+    width: 80%;
+  }
+
+  .skill_image{
+    width: 80dvw;
+    height: auto; 
+    object-fit: cover;
+  }
+  
+  .Technical_skills{
+    width: 80dvw;
+  }
+}
+
+@media (min-width: 801px) and (max-width: 1150px) {
+  .headshot_image{
+    width: 50%;
+  }
+
+  .skill_image{
+    width: 70dvw;
+    height: auto; 
+    object-fit: cover;
+  }
+  
+  .Technical_skills{
+    width: 70dvw;
+  }
+
+  html, body {
+    overflow-x: hidden;
+  }
+}
+
+@media (min-width: 1150px) {
+  .headshot_image{
+    width: 35%;
+  }
+  #faq{
+    width: 75%;
+  }
+
+  .skill_image{
+    width: 47dvw;
+    height: auto; 
+    object-fit: cover;
+  }
+  
+  .Technical_skills{
+    width: 37dvw;
+  }
+  html, body {
+    overflow-x: hidden;
+  }
+}
+
+.programming-skill{
+  color: red
+} 
+
+
+.footer_frame {
+  border: none;
+}
+
+dt{
+  font-size: 25;
+  font-weight: bold;
+}
+
+iframe{
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+#soft_skill_list{
+  font-size: 20;
+  font: Arial;
+}
+
+#skills {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.skill_image{
+  margin-left: 20px
+}
+
+
+output {
+  font-size: 0.85rem;
+  padding: 0.2rem;
+  border-radius: 2px;
+  display: block;
+  margin-bottom: 0.1rem;
+}
+
+.required_indicator{
+  color:red;
+  font-weight: bold;
+}
+
+.theme_button {
+  margin-top: 25px;
+  margin-left: calc(100vw - 295px);
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.theme_button:hover {
+  transform: scale(1.05);
+  background-color: #4CAF50;
+}
+
+body.dark_mode{
+  #faq details{
+    background-color: black;
+    
+    p{
+      color: white;
+    }
+  }
+
+  #faq summary{
+    color:plum
+  }
+
+  address{
+    color:lightgreen;
+  }
+
+  .theme_button{
+    color: white;
+  }
+
+  header{
+    background-color: rgb(50, 50, 50);
+  }
+
+  .navigation_links{
+    li a {
+      color: orange; 
+    }
+
+    li a:hover{
+      color: purple;
+      
+    }
+    }
+ 
+
+  aside a {
+    color: white;
+    text-decoration: none;
+  }
+
+  svg{
+    color: white;
+  }
+
+  footer {
+    background-color: rgb(50, 50, 50);
+  
+    legend{
+      color: white
+    }
+  
+    form {
+      background-color: blue;
+      border: 1px solid yellow;
+    }
+  
+    label, div {
+      color: white
+    }
+    h2{
+      color: green;
+    }
+  
+    .comments{
+      color: black;
+    }
+
+    input::placeholder{
+      color: black;
+    }
+
+    fieldset {
+      border: 2px solid #4CAF50;
+      background-color: black; 
+    } 
+  }
+
+  main{
+    background: black;
+  }
+
+  #about, #projects{
+    color: white;
+  }
+
+  cite a{
+    color: plum;
+  }
+
+
+}
+
+header{
+  form{
+    textarea:invalid, input:invalid{
+      border: none;
+    }
+  
+    textarea:valid, input:valid{
+      border: none;
+    }
+  }
+}
+
+
+
+.info_form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.name{
+  width: 50%;
+}
+
+.email{
+  width: 50%;
+}
+
+.number{
+  width: 50%;
+}
+
+footer button{
+  width: 50%;
+}
+
+h1{
+  color: green;
+  margin: 0px;
+}
+
+body.ocean_mode{
+  #faq details{
+    background-color: rgb(127, 127, 238);
+    
+    p{
+      color: black;
+    }
+  }
+
+  #faq summary{
+    color:white
+  }
+
+  address{
+    color:white;
+  }
+
+  .theme_button{
+    color: white;
+  }
+
+  header{
+    background-image: linear-gradient(rgb(223, 245, 114), lightblue, blue)
+  }
+
+  .navigation_links{
+    li a {
+      color: purple; 
+    }
+
+    li a:hover{
+      color: plum;
+      
+    }
+    }
+ 
+
+  aside a {
+    color: white;
+    text-decoration: none;
+  }
+
+  svg{
+    color: white;
+  }
+
+  footer {
+    background-image: linear-gradient(rgb(233, 245, 172), lightblue, blue);
+  
+    legend{
+      color: black
+    }
+  
+    form {
+      background-color: rgb(247, 198, 207);
+      border: 1px solid yellow;
+    }
+  
+    label, div {
+      color: black
+    }
+    h2{
+      color: green;
+    }
+  
+    .comments{
+      color: black;
+    }
+
+    input::placeholder{
+      color: black;
+    }
+
+    fieldset {
+      border: 2px solid #4CAF50;
+      background-color: lightblue; 
+    } 
+  }
+
+  main{
+    background: lightblue;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  #about, #projects{
+    color: black;
+  }
+
+  #about{
+    p{
+      font-family: 'Poppins', sans-serif;
+    }
+  }
+
+  cite a{
+    color: green;
+  }
+
+  
+  
+
+
+}

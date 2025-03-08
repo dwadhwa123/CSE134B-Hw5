@@ -1,0 +1,72 @@
+  <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Form Only CS/HTML</title>
+        <link rel="stylesheet" href="css/style.css">
+        <style>
+            textarea:user-invalid, input:user-invalid{
+              border-color: red;
+              border-width: 1px;
+            }
+
+            textarea:valid, input:valid{
+              border-color: green;
+              border-width: 1.5px;
+            }
+
+            input:focus, textarea:focus {
+              border-color: #007bff;
+              border-width: 1.5px !important;
+              outline: none;
+            }
+
+            #email:invalid + #error_message{
+              content: "Invalid input, please enter a valid age.";
+            }
+
+            .error-message {
+              display: none;
+              color: red;
+            }
+
+            .info-message{
+              display: none;
+              color: green
+            }
+
+        </style>
+    </head>
+    
+    <body class="footer">
+    <footer>
+        <h2>Contact Me</h2>
+        <form class="info_form" action="https://httpbin.org/post" method="post">
+          <fieldset>
+            <legend>Personal Information</legend>
+              <input type="hidden" name="possible_bot" value="true">
+    
+              <label for="name">Name: <span class="required_indicator">*</span></label>
+              <input type="text" class="name" name="name" required>
+              
+              <label for="email">Email: <span class="required_indicator">*</span></label>
+              <input type="email" class="email" name="email" required>
+    
+              <label for="reason">Phone Number:</label>
+              <input type="tel" class="number" name="number" placeholder="555-555-5555" pattern="^\d{3}-\d{3}-\d{4}$">
+            
+              <label for="comments">Comments: <span class="required_indicator">*</span></label>
+              <textarea class="comments" name="comments" required minlength="10" maxlength="500" pattern="^[a-zA-Z0-9\s.,!?'-]*$"></textarea><br>
+              <small class="hint">Max 500 characters, no special symbols.</small>
+    
+              <output class="error-message">There was an error with your form submission.</output>
+              <output class="info-message">This is some information about your form submission.</output> 
+              <button type="submit">Send Message</button>
+    
+          </fieldset>
+        </form>
+    
+    </body>
+      
+      
+      </footer>

@@ -1,0 +1,66 @@
+textarea:invalid, input:invalid{
+    border-color: black;
+    border-width: 1px;
+  }
+
+  textarea:valid, input:valid{
+    border-color: black;
+    border-width: 1.5px;
+  }
+
+  body.dark_mode{
+    textarea:valid, input:valid{
+      border-width: 3px;
+    }
+
+    textarea:invalid, input:invalid{
+      border-width: 2.5px;
+    }
+
+    .info-message{
+      color: white
+    }
+  }
+
+  body.ocean_mode{
+    textarea:valid, input:valid{
+      border-width: 3px;
+    }
+
+    textarea:invalid, input:invalid{
+      border-width: 2.5px;
+    }
+
+    .info-message{
+      color: black
+    }
+  }
+
+  #name {
+    margin-bottom: 5px;
+  }
+
+  input:focus, textarea:focus {
+    border-color: #007bff;
+    border-width: 1.5px !important;
+    outline: none;
+  }
+
+
+  .error-message {
+    display: none;
+    color: red;
+  }
+
+  .info-message{
+    color: purple
+  }
+
+  .fade-out {
+    animation: fadeOut 1s forwards;
+  }
+
+  .character_count{
+    font-size: 0.8rem;
+  }
+

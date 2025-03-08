@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en"> 
+  <head>
+    <title>Dhruv Wadhwa's Portfolio</title> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Dhruv">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/form_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+
+    <noscript>
+      <style>
+          .theme_button {
+              display: none;
+          }
+      </style>
+  </noscript>
+  </head>
+
+
+<body>
+  <header>
+    <canvas id="myCanvas" width="500" height="34"></canvas>
+  
+    <noscript>
+      <h1> Dhruv Wadhwa's Portfolio </h1>
+    </noscript>
+  
+    <script>
+      var canvas = document.getElementById('myCanvas');
+      var ctx = canvas.getContext('2d');
+    
+      ctx.font = '25px Arial';
+      ctx.fillStyle = 'green';
+    
+      var text = "Dhruv Wadhwa's Portfolio";
+      ctx.fillText(text, 20, 30);
+    </script>
+     
+    <div class="link-section">
+        <nav>
+          <ul class="navigation_links">
+              <li><a href="index.html" target="_top">Home</a></li>
+              <li><a href="about.html" target="_top">About</a></li>
+              <li><a href="skills.html" target="_top">Skills</a></li>
+              <li><a href="projects.html" target="_top">Projects</a></li>
+              <li><a href="faq.html" target="_top">FAQ</a></li>
+          </ul>
+      </nav>
+    </div>
+  
+
+    <button class="theme_button">Switch to Dark Mode</button>
+  
+    </header>
+
+  <main>
+    <section id="faq">
+        <h2>Frequently Asked Questions</h2>
+      
+        <details>
+          <summary>What technologies do you specialize in?</summary>
+          <p>The languages I am most comfortable with are Java and Python with knowledge in C++ and SQL. I have experience with databases like MongoDB. I also have used Docker containers as well as JavaFX for UI projects.</p>
+        </details>
+      
+        <details>
+          <summary>How do you approach new projects?</summary>
+          <p>When I start a new project, I make sure that I know all of different features and different scenarios that need to be accounted for.
+            Next, I think about the target audience and try to understand what they want. Next, I think about general things like which programming language, framework, and database should be used. Finally, I think about the scalability of the project making sure any plan can handle many users.  
+          </p>
+        </details>
+      
+        <details>
+          <summary>What is your experience with Artificial Intelligence?</summary>
+          <p>I have experience working with machine learning algorithms, including supervised and unsupervised learning, using libraries like pandas and scikit-learn. I’m passionate about AI and have worked on projects involving natural language processing (NLP) and computer vision.</p>
+        </details>
+      
+        <details>
+          <summary>How do you handle tight deadlines?</summary>
+          <p>I handle tight deadlines by prioritizing the most important tasks first. I create a timeline of when to do things that is reasonable and don't sacrifice the quality if the whole thing can't be completed by the intended date.</p>
+        </details>
+      
+        <details>
+          <summary>What sets you apart from other developers?</summary>
+          <p>I am not only a developer but also a problem-solver and I approach challenges with a creative mindset. Along with experience working on real-world projects, I also have attempted many programming problems and really enjoy the process in doing that. I think that mindset is something that helps me find solutions when it seems like nothing is working.  I am also committed to stay updated on the latest industry trends.</p>
+        </details>
+      </section>
+      
+  </main>
+
+
+  <br>
+
+  <footer>
+    <h2>Contact Me</h2>
+    <form class="info_form" action="https://httpbin.org/post" method="post">
+      <fieldset>
+        <legend>Personal Information</legend>
+          <input type="hidden" name="possible_bot" value="true">
+          
+          <input type="hidden" class="form-errors" name="form-errors" value="">
+  
+          <label for="name2">Name: <span class="required_indicator">*</span></label>
+          <input type="text" class="name" name="name" id="name2" required>
+          
+          <label for="email2">Email: <span class="required_indicator">*</span></label>
+          <input type="email" class="email" name="email" id="email2" required>
+  
+          <label for="phone2">Phone Number:</label>
+          <input type="tel" class="number" name="number" id="phone2" placeholder="555-555-5555" pattern="^\d{3}-\d{3}-\d{4}$">
+        
+          <label for="comments2">Comments: <span class="required_indicator">*</span></label>
+          <textarea class="comments" name="comments" id="comments2" required minlength="10" maxlength="500"></textarea>
+  
+  
+          <output class="error-message">There was an error with your form submission.</output> 
+          <output class="info-message">500 characters remaining</output>
+          <button type="submit" class="submit_button">Send Message</button>
+  
+      </fieldset>
+    </form>
+  <address>
+    <ol>
+      <li>Email: dhruvwa16@gmail.com or dwadhwa@ucsd.edu</li>
+      <li>Phone Number: (858)-265-9236</li>
+    </ol>
+  </address>
+  
+  <aside>
+    <a href="https://drive.google.com/file/d/1vr-jM7xTatfuOcuuxWPdtwKh1MlZ9JEH/view?usp=sharing" target="_blank" title="Resume">Resume</a>
+    <br>
+    <a href="https://www.linkedin.com/in/dhruv-wadhwa-8180261b3/" target="_blank" title="Linkedin">Linkedin</a>
+    <br>
+    <a href="https://github.com/dwadhwa123" target="_blank"></a>
+    <!-- Used chatgpt to generate this code -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+      <path fill="#181717" d="M12 0c-6.627 0-12 5.373-12 12 0 5.303 3.438 9.801 8.207 11.387.6.111.82-.258.82-.575v-2.1c-3.338.727-4.04-1.583-4.04-1.583-.546-1.388-1.333-1.757-1.333-1.757-1.088-.74.082-.726.082-.726 1.2.084 1.833 1.233 1.833 1.233 1.063 1.827 2.791 1.298 3.473.994.106-.771.416-1.297.758-1.596-2.665-.301-5.466-1.333-5.466-5.922 0-1.306.465-2.378 1.234-3.217-.123-.303-.534-1.528.117-3.174 0 0 1.009-.322 3.303 1.232.958-.266 1.984-.399 3.003-.404 1.018.005 2.046.138 3.003.404 2.292-1.554 3.303-1.232 3.303-1.232.653 1.646.24 2.871.117 3.174.769.839 1.234 1.911 1.234 3.217 0 4.595-2.806 5.62-5.478 5.917.428.385.809 1.144.809 2.297v3.401c0 .318.219.689.828.573 4.767-1.586 8.206-6.085 8.206-11.387 0-6.627-5.373-12-12-12z"/>
+    </svg>  
+  </aside>
+
+  
+    </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en"> 
+  <head>
+    <title>Dhruv Wadhwa's Portfolio</title> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Dhruv">
+    <meta charset="UTF-8">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/form_style.css">
+  <link rel="preload" href="certificate.png" as="image">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+
+  <style scoped>
+    #soft_skill_list{
+      color: black;
+      font-size: 1.25rem;
+      list-style-type: square;
+      align-items: center;
+    }
+  </style>
+
+<noscript>
+  <style>
+      .theme_button {
+          display: none;
+      }
+  </style>
+</noscript>
+  </head>
+
+
+<body>
+  <header>
+    <canvas id="myCanvas" width="500" height="34"></canvas>
+  
+    <noscript>
+      <h1> Dhruv Wadhwa's Portfolio </h1>
+    </noscript>
+  
+    <script>
+      var canvas = document.getElementById('myCanvas');
+      var ctx = canvas.getContext('2d');
+    
+      ctx.font = '25px Arial';
+      ctx.fillStyle = 'green';
+    
+      var text = "Dhruv Wadhwa's Portfolio";
+      ctx.fillText(text, 20, 30);
+    </script>
+     
+    <div class="link-section">
+        <nav>
+          <ul class="navigation_links">
+              <li><a href="index.html" target="_top">Home</a></li>
+              <li><a href="about.html" target="_top">About</a></li>
+              <li><a href="skills.html" target="_top">Skills</a></li>
+              <li><a href="projects.html" target="_top">Projects</a></li>
+              <li><a href="faq.html" target="_top">FAQ</a></li>
+          </ul>
+      </nav>
+    </div>
+  
+
+    <button class="theme_button">Switch to Dark Mode</button>
+  
+    </header>
+
+  <main>
+    <section id="skills">
+        <div class="Technical_skills">
+        <h2>Skills Section</h2>
+        <h3>Technical Skills</h3>
+        <table id="skills-table">
+        <caption>Computer Science Skills + Proficiency</caption>
+        <colgroup>
+            <col>
+            <col>
+        </colgroup>
+        <thead>
+            <tr>
+            <th>Computer Science Skills</th>
+            <th>Proficiency Level</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td>Java</td>
+            <td>Advanced</td>
+            </tr>
+            <tr>
+            <td>Python</td>
+            <td>Advanced</td>
+            </tr>
+            <tr>
+            <td>C</td>
+            <td>Intermediate</td>
+            </tr>
+            <tr>
+            <td><abbr title="Structured Query Language">SQL</abbr></td>
+            <td>Advanced</td>
+            </tr>
+            <tr>
+            <td>HTML</td>
+            <td>Intermediate</td>
+            </tr>
+            <tr>
+            <td>CSS</td>
+            <td><del>Basic</del><ins>Intermediate</ins></td>
+            </tr>
+            <tr>
+            <td>Javascript</td>
+            <td>Intermediate</td>
+            </tr>
+            <tr>
+            <td>Computer Networks</td>
+            <td>Advanced</td>
+            </tr>
+        </tbody>
+        </table>
+        </div>
+
+        <template id="skill-template">
+          <tr>
+              <td class="skill-name"></td>
+              <td class="skill-level"></td>
+          </tr>
+        </template>
+
+        <div class="Soft_skills">
+        <h3>Soft Skills</h3>
+        <ul id="soft_skill_list">
+        <li>Communication</li>
+        <li>Teamwork</li>
+        <li>Problem-Solving</li>
+        <li>Time Management</li>
+        <li>Adaptability</li>
+        </ul>
+        </div>
+      </section>
+
+    <figure id="certificate_fig">
+      <picture>
+        <source srcset="media/certificate_large.jpg" media="(min-width: 1500px)" type="image/png">
+      
+        <source srcset="media/certificate.jpg" media="(min-width: 1200px) and (max-width: 1500px)" type="image/png">
+
+        <source srcset="media/certificate_medium.jpg" media="(min-width: 800px) and (max-width: 1199px)" type="image/png">
+
+        <source srcset="media/certificate_small.jpg" media="(max-width: 800px)" type="image/png">
+      
+        <img src="media/certificate.jpg" alt="Python Certificate" class="skill_image" loading="lazy">
+        
+      </picture>
+      <figcaption><em>Python Course Certificate</em></figcaption>
+    </figure>
+  </main>
+
+  <footer>
+    <h2>Contact Me</h2>
+    <form class="info_form" action="https://httpbin.org/post" method="post">
+      <fieldset>
+        <legend>Personal Information</legend>
+          <input type="hidden" name="possible_bot" value="true">
+          
+          <input type="hidden" class="form-errors" name="form-errors" value="">
+  
+          <label for="name5">Name: <span class="required_indicator">*</span></label>
+          <input type="text" class="name" name="name" id="name5" required>
+          
+          <label for="email5">Email: <span class="required_indicator">*</span></label>
+          <input type="email" class="email" name="email" id="email5" required>
+  
+          <label for="phone5">Phone Number:</label>
+          <input type="tel" class="number" name="number" id="phone5" placeholder="555-555-5555" pattern="^\d{3}-\d{3}-\d{4}$">
+        
+          <label for="comments5">Comments: <span class="required_indicator">*</span></label>
+          <textarea class="comments" name="comments" id="comments5" required minlength="10" maxlength="500"></textarea>
+  
+  
+          <output class="error-message">There was an error with your form submission.</output> 
+          <output class="info-message">500 characters remaining</output>
+          <button type="submit" class="submit_button">Send Message</button>
+  
+      </fieldset>
+    </form>
+  <address>
+    <ol>
+      <li>Email: dhruvwa16@gmail.com or dwadhwa@ucsd.edu</li>
+      <li>Phone Number: (858)-265-9236</li>
+    </ol>
+  </address>
+  
+  <aside>
+    <a href="https://drive.google.com/file/d/1vr-jM7xTatfuOcuuxWPdtwKh1MlZ9JEH/view?usp=sharing" target="_blank" title="Resume">Resume</a>
+    <br>
+    <a href="https://www.linkedin.com/in/dhruv-wadhwa-8180261b3/" target="_blank" title="Linkedin">Linkedin</a>
+    <br>
+    <a href="https://github.com/dwadhwa123" target="_blank"></a>
+    <!-- Used chatgpt to generate this code -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+      <path fill="#181717" d="M12 0c-6.627 0-12 5.373-12 12 0 5.303 3.438 9.801 8.207 11.387.6.111.82-.258.82-.575v-2.1c-3.338.727-4.04-1.583-4.04-1.583-.546-1.388-1.333-1.757-1.333-1.757-1.088-.74.082-.726.082-.726 1.2.084 1.833 1.233 1.833 1.233 1.063 1.827 2.791 1.298 3.473.994.106-.771.416-1.297.758-1.596-2.665-.301-5.466-1.333-5.466-5.922 0-1.306.465-2.378 1.234-3.217-.123-.303-.534-1.528.117-3.174 0 0 1.009-.322 3.303 1.232.958-.266 1.984-.399 3.003-.404 1.018.005 2.046.138 3.003.404 2.292-1.554 3.303-1.232 3.303-1.232.653 1.646.24 2.871.117 3.174.769.839 1.234 1.911 1.234 3.217 0 4.595-2.806 5.62-5.478 5.917.428.385.809 1.144.809 2.297v3.401c0 .318.219.689.828.573 4.767-1.586 8.206-6.085 8.206-11.387 0-6.627-5.373-12-12-12z"/>
+    </svg>  
+  </aside>
+  
+    </footer>
+  <script src="script.js"></script>
+</body>
+</html>
