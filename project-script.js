@@ -66,50 +66,94 @@ class ProjectCard extends HTMLElement {
       `;
 
       shadow.appendChild(style);
-  
-      // Create the structure of the card
       const card = document.createElement('div');
       card.setAttribute('class', 'card');
+
+
+      this.picture = document.createElement('picture');
+      this.img = document.createElement('img');
+      this.img.setAttribute('src', this.getAttribute('img-src'));
+      this.img.setAttribute('alt', this.getAttribute('alt-text'));
+      this.picture.appendChild(this.img);
   
-      // Project Name
-      const title = document.createElement('h2');
-      title.textContent = this.getAttribute('title');
+      this.description = document.createElement('p');
+      this.description.textContent = this.getAttribute('description');
+
+      // this.title = document.createElement('h2');
+      // this.title.innerText = this.getAttribute('title');
   
-      // Picture
-      const picture = document.createElement('picture');
-      const img = document.createElement('img');
-      img.setAttribute('src', this.getAttribute('img-src'));
-      img.setAttribute('alt', this.getAttribute('alt-text'));
-      picture.appendChild(img);
+      this.link = document.createElement('a');
+      this.link.setAttribute('href', this.getAttribute('link-url'));
+      this.link.textContent = 'Further Reading';
   
-      // Description
-      const description = document.createElement('p');
-      description.textContent = this.getAttribute('description');
-  
-      // Hyperlink for more details
-      const link = document.createElement('a');
-      link.setAttribute('href', this.getAttribute('link-url'));
-      link.textContent = 'Further Reading';
-  
-      // Append everything to the shadow root
-      card.appendChild(title);
-      card.appendChild(picture);
-      card.appendChild(description);
-      card.appendChild(link);
+      // card.appendChild(this.title);
+      card.appendChild(this.picture);
+      card.appendChild(this.description);
+      card.appendChild(this.link);
       
       shadow.appendChild(card);
     }
   
     static get observedAttributes() {
-      return ['title', 'img-src', 'alt-text', 'description', 'link-url'];
+      return ['img-src', 'alt-text', 'description', 'link-url'];
     }
   
     attributeChangedCallback(name, oldValue, newValue) {
       if (oldValue !== newValue) {
-        this.shadowRoot.querySelector(name).textContent = newValue;
+        // Ensure the elements are available before changing them
+        // if (this.title && name === 'title') {
+        //   this.title.innerText = newValue;
+        // }
+        if (this.img && name === 'img-src') {
+          this.img.src = newValue;
+        }
+        if (this.img && name === 'alt-text') {
+          this.img.alt = newValue;
+        }
+        if (this.description && name === 'description') {
+          this.description.textContent = newValue;
+        }
+        if (this.link && name === 'link-url') {
+          this.link.href = newValue;
+        }
       }
     }
   }
   
   customElements.define('project-card', ProjectCard);
   
+  const localData = [
+    {
+      "img-src": "media/ceregem.png",
+      "alt-text": "Ceregem Logo",
+      description: "I worked with two professors to create a real time game using the UI components that allows players to make business decisions such as cost choices and advertising and gives out profits, sales using a formula. I managed my source control with Git. For example, I use: In order to quickly update the results based on the decisions made by the players, I stored the decisions in MongoDB, which is a database that can store data in a document oriented format and used listeners to see when they were changed. Using these listeners, I could instantaneously update the UI. The reason I used MongoDB is because the information sent between users is fixed into a few decisions so there was no need to overcomplicate it by doing a client-server application.",
+      "link-url": "https://www.ceregem.net/blog"
+    }
+  ];
+
+  if (!localStorage.getItem('projects')) {
+    localStorage.setItem('projects', JSON.stringify(localData));
+  }
+  
+
+  const loadLocalData = () => {
+    const data = JSON.parse(localStorage.getItem('projects'));
+    renderCards(data);
+  };
+
+  const renderCards = (data) => {
+    const cardsContainer = document.getElementById('cards-container');
+    cardsContainer.innerHTML = ''; 
+  
+    data.forEach(item => {
+      const card = document.createElement('project-card');
+      // card.setAttribute('title', item.title);
+      card.setAttribute('img-src', item['img-src']);
+      card.setAttribute('alt-text', item['alt-text']);
+      card.setAttribute('description', item.description);
+      card.setAttribute('link-url', item['link-url']);
+      cardsContainer.appendChild(card);
+    });
+  };
+  
+  document.getElementById('local_button').addEventListener('click', loadLocalData);
