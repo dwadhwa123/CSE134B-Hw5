@@ -10,8 +10,8 @@ class ProjectCard extends HTMLElement {
           --card-bg: plum;
           --card-border: 2px solid black;
           --card-padding: 20px;
-          --card-width: 90vw;
-          --card-margin: 15px;
+          --card-width: 80vw; 
+          --card-margin: auto;
           --title-font: 'Arial', sans-serif;
           --description-color: black;
           --link-color: blue;
@@ -27,6 +27,7 @@ class ProjectCard extends HTMLElement {
           padding: var(--card-padding);
           width: var(--card-width);
           margin: var(--card-margin);
+          margin-bottom: 10px;
         }
   
         h2 {
@@ -88,7 +89,7 @@ class ProjectCard extends HTMLElement {
       // Hyperlink for more details
       const link = document.createElement('a');
       link.setAttribute('href', this.getAttribute('link-url'));
-      link.textContent = 'Learn more';
+      link.textContent = 'Further Reading';
   
       // Append everything to the shadow root
       card.appendChild(title);
