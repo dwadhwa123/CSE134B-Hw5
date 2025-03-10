@@ -27,6 +27,7 @@ class ProjectCard extends HTMLElement {
           padding: var(--card-padding);
           width: var(--card-width);
           margin: var(--card-margin);
+          margin-top: 10px;
           margin-bottom: 10px;
         }
   
@@ -100,7 +101,6 @@ class ProjectCard extends HTMLElement {
   
     attributeChangedCallback(name, oldValue, newValue) {
       if (oldValue !== newValue) {
-        // Ensure the elements are available before changing them
         // if (this.title && name === 'title') {
         //   this.title.innerText = newValue;
         // }
@@ -131,10 +131,7 @@ class ProjectCard extends HTMLElement {
     }
   ];
 
-  if (!localStorage.getItem('projects')) {
-    localStorage.setItem('projects', JSON.stringify(localData));
-  }
-  
+  localStorage.setItem('projects', JSON.stringify(localData));
 
   const loadLocalData = () => {
     const data = JSON.parse(localStorage.getItem('projects'));
@@ -144,16 +141,47 @@ class ProjectCard extends HTMLElement {
   const renderCards = (data) => {
     const cardsContainer = document.getElementById('cards-container');
     cardsContainer.innerHTML = ''; 
-  
-    data.forEach(item => {
-      const card = document.createElement('project-card');
-      // card.setAttribute('title', item.title);
-      card.setAttribute('img-src', item['img-src']);
-      card.setAttribute('alt-text', item['alt-text']);
-      card.setAttribute('description', item.description);
-      card.setAttribute('link-url', item['link-url']);
-      cardsContainer.appendChild(card);
-    });
+    
+    if (Array.isArray(data)) {
+      data.forEach(item => {
+        const card = document.createElement('project-card');
+        card.setAttribute('img-src', item['img-src']);
+        card.setAttribute('alt-text', item['alt-text']);
+        card.setAttribute('description', item.description);
+        card.setAttribute('link-url', item['link-url']);
+        cardsContainer.appendChild(card);
+      });
+    } else {
+      console.error('Data is not an array:', data);
+    }
   };
-  
   document.getElementById('local_button').addEventListener('click', loadLocalData);
+
+
+  const remoteDataUrl = 'https://api.jsonbin.io/v3/b/67ce3c55acd3cb34a8f7dcb3';
+  const apiKey = '$2a$10$RXOoSYr5h1E/sr.OEIobaeI5Sec87hHDagu4lsE2nlTviwlcM93Nm';
+
+
+  const loadRemoteData = async () => {
+    try {
+      const response = await fetch(remoteDataUrl, {
+        headers: {
+          'X-Master-Key': apiKey, 
+        },
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to fetch data from JSONBin');
+      }
+  
+      const data = await response.json();
+      const projectData = data.record.project_data; 
+      renderCards(projectData); 
+    } catch (error) {
+      console.error('Error loading remote data:', error);
+    }
+  };
+
+document.getElementById('remote_button').addEventListener('click', loadRemoteData);
+
+
