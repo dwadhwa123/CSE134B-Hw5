@@ -76,34 +76,36 @@ class ProjectCard extends HTMLElement {
       this.img.setAttribute('src', this.getAttribute('img-src'));
       this.img.setAttribute('alt', this.getAttribute('alt-text'));
       this.picture.appendChild(this.img);
-  
+
       this.description = document.createElement('p');
       this.description.textContent = this.getAttribute('description');
 
-      // this.title = document.createElement('h2');
-      // this.title.innerText = this.getAttribute('title');
+      this.title2 = document.createElement('h2');
+      this.title2.textContent = this.getAttribute('title2');
   
       this.link = document.createElement('a');
       this.link.setAttribute('href', this.getAttribute('link-url'));
       this.link.textContent = 'Further Reading';
   
-      // card.appendChild(this.title);
+      card.appendChild(this.title2);
       card.appendChild(this.picture);
       card.appendChild(this.description);
       card.appendChild(this.link);
+      
       
       shadow.appendChild(card);
     }
   
     static get observedAttributes() {
-      return ['img-src', 'alt-text', 'description', 'link-url'];
+      return ['img-src', 'alt-text', 'description', 'link-url', 'title2'];
     }
   
     attributeChangedCallback(name, oldValue, newValue) {
       if (oldValue !== newValue) {
-        // if (this.title && name === 'title') {
-        //   this.title.innerText = newValue;
-        // }
+        if (this.title2 && name === 'title2') {
+          this.title2.textContent = newValue;
+          console.log(newValue);
+        }
         if (this.img && name === 'img-src') {
           this.img.src = newValue;
         }
@@ -124,6 +126,7 @@ class ProjectCard extends HTMLElement {
   
   const localData = [
     {
+      title2: "Business Game With Ceregem Technologies",
       "img-src": "media/ceregem.png",
       "alt-text": "Ceregem Logo",
       description: "I worked with two professors to create a real time game using the UI components that allows players to make business decisions such as cost choices and advertising and gives out profits, sales using a formula. I managed my source control with Git. For example, I use: In order to quickly update the results based on the decisions made by the players, I stored the decisions in MongoDB, which is a database that can store data in a document oriented format and used listeners to see when they were changed. Using these listeners, I could instantaneously update the UI. The reason I used MongoDB is because the information sent between users is fixed into a few decisions so there was no need to overcomplicate it by doing a client-server application.",
@@ -145,6 +148,7 @@ class ProjectCard extends HTMLElement {
     if (Array.isArray(data)) {
       data.forEach(item => {
         const card = document.createElement('project-card');
+        card.setAttribute('title2', item.title2);
         card.setAttribute('img-src', item['img-src']);
         card.setAttribute('alt-text', item['alt-text']);
         card.setAttribute('description', item.description);
