@@ -441,6 +441,13 @@ video {
   .Technical_skills{
     width: 80dvw;
   }
+
+}
+
+@media (max-width: 650px){
+  .info_form{
+    margin: auto;
+  }
 }
 
 @media (min-width: 801px) and (max-width: 1150px) {
