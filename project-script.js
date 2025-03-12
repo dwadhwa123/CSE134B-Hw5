@@ -104,7 +104,6 @@ class ProjectCard extends HTMLElement {
       if (oldValue !== newValue) {
         if (this.title2 && name === 'title2') {
           this.title2.textContent = newValue;
-          console.log(newValue);
         }
         if (this.img && name === 'img-src') {
           this.img.src = newValue;
@@ -126,15 +125,67 @@ class ProjectCard extends HTMLElement {
   
   const localData = [
     {
-      title2: "Business Game With Ceregem Technologies",
+      "title2": "Business Game With Ceregem Technologies",
       "img-src": "media/ceregem.png",
-      "alt-text": "Ceregem Logo",
-      description: "I worked with two professors to create a real time game using the UI components that allows players to make business decisions such as cost choices and advertising and gives out profits, sales using a formula. I managed my source control with Git. For example, I use: In order to quickly update the results based on the decisions made by the players, I stored the decisions in MongoDB, which is a database that can store data in a document oriented format and used listeners to see when they were changed. Using these listeners, I could instantaneously update the UI. The reason I used MongoDB is because the information sent between users is fixed into a few decisions so there was no need to overcomplicate it by doing a client-server application.",
+      "alt-text": "Ceregem Technologies Logo",
+      "description": "I worked with two professors to create a real time game using the UI components that allows players to make business decisions such as cost choices and advertising and gives out profits, sales using a formula. I managed my source control with Git. For example, I use: In order to quickly update the results based on the decisions made by the players, I stored the decisions in MongoDB, which is a database that can store data in a document oriented format and used listeners to see when they were changed. Using these listeners, I could instantaneously update the UI. The reason I used MongoDB is because the information sent between users is fixed into a few decisions so there was no need to overcomplicate it by doing a client-server application.",
       "link-url": "https://www.ceregem.net/blog"
+    },
+    {
+      "title2": "TFIDF Vectorizer to predict MBTI type",
+      "img-src": "media/TFIDF.png",
+      "alt-text": "TDIDF vectorizer Word Cloud",
+      "description": "I created a TDIDF Vectorizer with the purpose of taking in strings representing the post history of the user and using that to predict the Myers Brigss Type Indicator(MBTI) of that user. I used supervised learning to train the model as the code shows below.",
+      "link-url": "https://towardsdatascience.com/text-vectorization-term-frequency-inverse-document-frequency-tfidf-5a3f9604da6d/"
+    },
+    {
+      "title2": "Creating a custom NFA",
+      "img-src": "media/NFA.png",
+      "alt-text": "My Custom NFA",
+      "description": "I created a Nondeterminisitc Finite Automatic(NFA) which took in an input of a string and returned the string + 'ab' if of even length or the string minus its last character if of odd length. I really struggled with this project because it was very open ended in terms of the coding aspect and I wans't sure how I wanted to approach it. I thought about making classes/objects to represent the different states but ultimately decided on using boolean values. Even though it wasn't the most difficult project, it really helped refine my process in terms of how to approach a new problem that I haven't faced before.",
+      "link-url": "https://www.tutorialspoint.com/automata_theory/non_deterministic_finite_automaton.htm"
+    },
+    {
+      "title2": "Pantry Pal",
+      "img-src": "media/PantryPal.png",
+      "alt-text": "Wireframe of the Pantry Pal Home Page",
+      "description": "I worked with a group of 6 people to create a recipe generating and storing application. We used the Whisper API to take in speech input of ingredients, then using those ingredients, generating a recipe with the Chatgpt API. Along with the recipe, we used the Dalle API to generate images. We used JavaFX for the UI. Finally, we also used a MongoDB server in order to save information from accounts so that you can log into an account from any device. Working on this project helped improve my communication and teamwork as it forced me to compromise and make decisions that everyone could get behind.",
+      "link-url": "https://drive.google.com/file/d/1_8gHFzJLfBDduMN5KiIeAtnWTIMVLKbY/view?usp=sharing"
+    },
+    {
+      "title2": "JavaFX project with CRUD operations",
+      "img-src": "media/CRUD.png",
+      "alt-text": "CRUD operation project home page",
+      "description": "I worked with a partner to create a basic contact page that has all of the CRUD(Create, Remove, Update, Delete) operations. The project UI is created using JavaFX with each contact using an HBox.",
+      "link-url": "https://en.wikipedia.org/wiki/Create,_read,_update_and_delete"
     }
+
+    
+
   ];
 
   localStorage.setItem('projects', JSON.stringify(localData));
+
+  const loadRemoteData = async () => {
+    try {
+      const response = await fetch(remoteDataUrl, {
+        headers: {
+          'X-Master-Key': apiKey, 
+        },
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to fetch data from JSONBin');
+      }
+
+     
+      const data = await response.json();
+      const projectData = data.record.project_data; 
+      renderCards(projectData); 
+    } catch (error) {
+      console.error('Error loading remote data:', error);
+    }
+  };
 
   const loadLocalData = () => {
     const data = JSON.parse(localStorage.getItem('projects'));
@@ -165,26 +216,6 @@ class ProjectCard extends HTMLElement {
   const remoteDataUrl = 'https://api.jsonbin.io/v3/b/67ce3c55acd3cb34a8f7dcb3';
   const apiKey = '$2a$10$RXOoSYr5h1E/sr.OEIobaeI5Sec87hHDagu4lsE2nlTviwlcM93Nm';
 
-
-  const loadRemoteData = async () => {
-    try {
-      const response = await fetch(remoteDataUrl, {
-        headers: {
-          'X-Master-Key': apiKey, 
-        },
-      });
-  
-      if (!response.ok) {
-        throw new Error('Failed to fetch data from JSONBin');
-      }
-  
-      const data = await response.json();
-      const projectData = data.record.project_data; 
-      renderCards(projectData); 
-    } catch (error) {
-      console.error('Error loading remote data:', error);
-    }
-  };
 
 document.getElementById('remote_button').addEventListener('click', loadRemoteData);
 
