@@ -5,6 +5,7 @@ header {
   width: 100vw;
   background-color: lightgray; /*light mode */
   color: yellow;
+  border-bottom: 4px black solid;
 }
 
 canvas{
@@ -123,6 +124,7 @@ footer form {
 footer {
   width: 100%;
   background-color: lightgrey;
+  border-top: 4px black solid;
 
   legend{
     color: red
@@ -222,6 +224,23 @@ aside a:hover {
   transform: scale(0.5); 
   animation: fadeInScale 2s ease-out forwards;
 }
+
+#home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+figure {
+  margin: 0;
+}
+
+img.headshot_image {
+  max-width: 100%;
+  height: auto;
+}
+
 
 @keyframes fadeInScale {
   0% {
@@ -472,7 +491,7 @@ video {
 
 @media (min-width: 1150px) {
   .headshot_image{
-    width: 35%;
+    width: 45%;
   }
   #faq{
     width: 75%;
@@ -588,6 +607,7 @@ body.dark_mode{
 
   header{
     background-color: rgb(50, 50, 50);
+    border-bottom-color: white;
   }
 
   .navigation_links{
@@ -612,6 +632,7 @@ body.dark_mode{
   }
 
   footer {
+    border-top-color: white;
     background-color: rgb(50, 50, 50);
   
     legend{
