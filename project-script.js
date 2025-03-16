@@ -183,13 +183,19 @@ class ProjectCard extends HTMLElement {
       const projectData = data.record.project_data; 
       renderCards(projectData); 
     } catch (error) {
-      console.error('Error loading remote data:', error);
+      alert("Data could not be loaded from JSONBin");
     }
   };
 
   const loadLocalData = () => {
-    const data = JSON.parse(localStorage.getItem('projects'));
-    renderCards(data);
+    try{
+      const data = JSON.parse(localStorage.getItem('projects'));
+      renderCards(data);
+    }
+    catch (error){
+      alert("Data could not be loaded from local storage");
+    }
+    
   };
 
   const renderCards = (data) => {
@@ -207,7 +213,7 @@ class ProjectCard extends HTMLElement {
         cardsContainer.appendChild(card);
       });
     } else {
-      console.error('Data is not an array:', data);
+      alert("Data could not be loaded from local storage");
     }
   };
   document.getElementById('local_button').addEventListener('click', loadLocalData);
