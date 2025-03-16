@@ -64,6 +64,30 @@ class ProjectCard extends HTMLElement {
         a:hover {
           color: var(--link-hover-color);
         }
+
+        @media (max-width: 500px) {
+          img {
+            width: 97%;    
+          }
+        }
+
+        @media (max-width: 768px) {
+          img {
+            width: 90%;    
+          }
+        }
+
+        @media (max-width: 900px) {
+          img {
+            width: 80%;    
+          }
+        }
+
+         @media (max-width: 1300px) {
+          img {
+            width: 70%;    
+          }
+        }
       `;
 
       shadow.appendChild(style);
